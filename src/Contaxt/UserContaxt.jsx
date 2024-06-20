@@ -22,7 +22,16 @@ export const requestPasswordReset = async (data) => {
 };
 
 export const resetPassword = async (data) => {
-  return await axios.post(`${BASE_URL}/user/reset-password`, data);
+  try{
+    console.log("data:",data);
+    const response = await axios.post(`${BASE_URL}/user/reset-password`, data);
+    console.log("response : ",response.data);
+    return response
+  }
+  catch (error) {
+    console.error("Error:", error);
+  }
+ 
 };
 
 

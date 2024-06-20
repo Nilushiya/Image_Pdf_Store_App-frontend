@@ -3,6 +3,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { requestPasswordReset } from '../Contaxt/UserContaxt';
 import '../Components/Style/Login.css';
 import 'react-toastify/dist/ReactToastify.css'; 
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -79,6 +80,9 @@ const ForgotPassword = () => {
         </div>
         <button type="submit" className="btn">Submit</button>
       </form>
+      <div className="login-link">
+      <Link to = '/login' className="login " style={{marginLeft:"5px"}}><i className="fas fa-arrow-left" style={{ marginRight: "5px" }}></i>Signin</Link>
+      </div>
       <ToastContainer />
     </div>
   );

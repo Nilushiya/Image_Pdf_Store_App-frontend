@@ -24,6 +24,19 @@
     justify-content: center;
     align-items: center;
   }
+  .reset-password-form{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #0f0808;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
    h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -82,13 +95,18 @@
     margin-bottom: 10px;
   }
   .login-link a.signup {
-    color: #fff; 
+    color: rgb(7, 145, 190); 
     text-decoration: none; 
   }
   
   .login-link a.signup:hover {
     text-decoration: underline; 
+    /* color: white; */
   }
   .forgot_password{
     color: rgb(30, 159, 219);
+    text-decoration: none; 
+  }
+  .forgot_password:hover{
+    text-decoration: underline; 
   }
