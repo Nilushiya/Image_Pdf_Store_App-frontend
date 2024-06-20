@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import login from '../Components/Style/Login.css'
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+import { checklogin } from '../Contaxt/UserContaxt';
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -20,20 +23,56 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length === 0) {
-      // Form is valid, submit the data (you can make an API call here)
-      console.log('Form data:', formData);
-      // Reset form state
-      setFormData({
-        email: '',
-        password: ''
-      });
-      setErrors({});
+      try {
+        const response = await checklogin(formData);
+        if(response.data.success === true){
+          toast.success("Login Success", {
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          })
+          const token = response.data;
+          localStorage.setItem('token',token);
+          setTimeout(() => {
+            navigate('/');
+          }, 1500);
+        }
+        if(response.data.success === false){
+          toast.error(response.data.error, {
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined});
+        }
+          
+        setFormData({
+              email: '',
+              password: ''
+            });
+        setErrors({});
+      } catch (error) { 
+        // console.log('exit else :')
+
+        toast.error('Registration failed. Please try again later.', {
+          autoClose: 2000, 
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined});
+        // console.error('Registration failed:', error);
+      }
     } else {
-      // Form validation failed, update errors state
+      
       setErrors(validationErrors);
     }
   };
@@ -62,7 +101,7 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
-            type="email"
+            type="text"
             id="email"
             name="email"
             value={formData.email}
