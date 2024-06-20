@@ -11,8 +11,20 @@
     justify-content: center;
     align-items: center;
   }
-  
-  .login-form h2 {
+  .forgot-password-form{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #0f0808;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+   h2 {
     text-align: center;
     margin-bottom: 20px;
     color: white;
@@ -27,8 +39,8 @@
     margin-bottom: 5px;
   }
   
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
+  input[type="text"],
+   input[type="password"] {
     height: 50px;
     padding: 10px;
     font-size: 16px;

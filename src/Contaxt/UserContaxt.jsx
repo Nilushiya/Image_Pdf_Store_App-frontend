@@ -6,6 +6,27 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const BASE_URL = 'http://localhost:4000/api';
 
 
+
+
+
+
+export const requestPasswordReset = async (data) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/request-password-reset`, data);
+    console.log("response : ",response.data);
+    return response
+  } 
+  catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+export const resetPassword = async (data) => {
+  return await axios.post(`${BASE_URL}/user/reset-password`, data);
+};
+
+
+
 // Register
 export const checkRegister = async(formData) => {
     try {

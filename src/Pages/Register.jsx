@@ -9,7 +9,7 @@ const Register = () => {
 const navigate = useNavigate();
 const [formData, setFormData] = useState({
 user_name: '',
-user_address: '', // Simplified address field
+user_address: '',
 phone_no: '',
 email: '',
 password: ''
