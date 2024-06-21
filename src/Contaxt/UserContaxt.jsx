@@ -13,7 +13,7 @@ const BASE_URL = 'http://localhost:4000/api';
 export const requestPasswordReset = async (data) => {
   try {
     const response = await axios.post(`${BASE_URL}/user/request-password-reset`, data);
-    console.log("response : ",response.data);
+    // console.log("response : ",response.data);
     return response
   } 
   catch (error) {
@@ -25,7 +25,7 @@ export const resetPassword = async (data) => {
   try{
     console.log("data:",data);
     const response = await axios.post(`${BASE_URL}/user/reset-password`, data);
-    console.log("response : ",response.data);
+    // console.log("response : ",response.data);
     return response
   }
   catch (error) {
@@ -40,7 +40,7 @@ export const resetPassword = async (data) => {
 export const checkRegister = async(formData) => {
     try {
       const response = await axios.post(`${BASE_URL}/user/signup`, formData);
-      console.log("response : ",response.data)
+      // console.log("response : ",response.data)
 
       return response
     } 
@@ -52,7 +52,7 @@ export const checkRegister = async(formData) => {
 export const checklogin = async(formData) => {
     try {
       const response = await axios.post(`${BASE_URL}/user/signin`, formData);
-      console.log("response : ",response.data)
+      // console.log("response : ",response.data)
       return response
     } 
     catch (error) {
