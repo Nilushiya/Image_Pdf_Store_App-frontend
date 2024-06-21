@@ -68,6 +68,8 @@
   color: #09090a;
   opacity: 80%;
   border: none;
+  padding: 5px;
+  background-color: #11bb88;
 }
 
 .icon-button:hover {

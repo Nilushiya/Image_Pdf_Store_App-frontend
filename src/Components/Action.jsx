@@ -12,7 +12,7 @@ const Action = () => {
   const [user_name, setUser_name] = useState('');
   const [name_firstLetter, setName_firstLetter] = useState('');
   const [showModal, setShowModal] = useState(false);
-
+  const [editModal, setModal] = useState(false);
   useEffect(() => {
     const decode = decodeToken();
     const user_name = decode.user_name;
@@ -24,6 +24,8 @@ const Action = () => {
 
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
+  const handleEdit = () => setModal(true);
+  const handleEditClose = () => setModal(false);
 
   return (
     <>
@@ -36,9 +38,9 @@ const Action = () => {
           <button className="icon-button" onClick={handleShow}>
             <FontAwesomeIcon icon={faEye} />
           </button>
-          <Link className="icon-button" to='/profile/view'>
+          <button className="icon-button" onClick={handleEdit}>
             <FontAwesomeIcon icon={faEdit} />
-          </Link>
+          </button>
         </div>
         <h1 className="heading">Choose an Action</h1>
         <div className="button-container">
@@ -55,6 +57,18 @@ const Action = () => {
           <p>Username: {user_name}</p>
           <p>Username: {user_name}</p>
           <Button variant="secondary" onClick={handleClose} className='modelFooter '>
+            Close
+          </Button>
+       </div>
+      </Modal>
+      <Modal show={editModal} onHide={handleClose} centered className='model '> 
+     
+       <div className='modelbox'>
+          <h1 className='head' style={{color:"white"}}> <FontAwesomeIcon icon={faUser} /></h1>
+          <p>Username: {user_name}</p>
+          <p>Username: {user_name}</p>
+          <p>Username: {user_name}</p>
+          <Button variant="secondary" onClick={handleEditClose} className='modelFooter '>
             Close
           </Button>
        </div>
