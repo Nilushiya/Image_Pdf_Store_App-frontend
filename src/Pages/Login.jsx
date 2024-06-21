@@ -38,10 +38,11 @@ const Login = () => {
             draggable: true,
             progress: undefined
           })
-          const token = response.data;
+          const token = response.data.jwtToken;
+          // console.log("token : ",token);
           localStorage.setItem('token',token);
           setTimeout(() => {
-            navigate('/');
+            navigate('/action');
           }, 1500);
         }
         if(response.data.success === false){
