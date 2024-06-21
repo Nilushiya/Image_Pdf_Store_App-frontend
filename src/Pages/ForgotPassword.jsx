@@ -3,9 +3,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import { requestPasswordReset } from '../Contaxt/UserContaxt';
 import '../Components/Style/Login.css';
 import 'react-toastify/dist/ReactToastify.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [error, setError] = useState({});
 
@@ -29,16 +30,18 @@ const ForgotPassword = () => {
         const response = await requestPasswordReset({ email });
         if (response.data.success) {
           toast.success('Password reset link sent to your email', {
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
           });
+          setEmail('');
+          navigate('/')
         } else {
           toast.error(response.data.error, {
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -48,7 +51,7 @@ const ForgotPassword = () => {
         }
       } catch (error) {
         toast.error('Failed to send password reset email. Please try again later.', {
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
