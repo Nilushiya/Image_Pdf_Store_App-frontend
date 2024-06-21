@@ -9,13 +9,14 @@ import ResetPassword from './Pages/ResetPassword';
 import Action from './Components/Action';
 import Pdf from './Components/Pdf';
 import Image from './Components/Image';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <div className="App">
        <BrowserRouter>
         <Routes>
-          
+
           <Route path='/' element={<Home />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
@@ -24,8 +25,6 @@ function App() {
           <Route path='/action' element={<Action />}/>
           <Route path='/image' element={<Image />}/>
           <Route path='/pdf' element={<Pdf />}/>
-
-
 
         </Routes>
        </BrowserRouter>

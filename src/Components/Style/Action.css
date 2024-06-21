@@ -5,7 +5,28 @@
     justify-content: center;
     height: 100vh;
   }
-  
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #0f0808;
+  opacity: 80%;
+  color: #fff;
+}
+
+
+.home-icon, .logout-icon {
+  color: #1176e2;
+  cursor: pointer;
+}
+
+.logout-icon {
+  cursor: pointer;
+}
   .heading {
     font-size: 2.5rem;
     margin-bottom: 2rem;
