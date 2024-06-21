@@ -27,12 +27,42 @@
 .logout-icon {
   cursor: pointer;
 }
-  .heading {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: white;
-    animation: fadeIn 3s ease-in-out;
-  }
+.profile-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #09090a;
+  opacity: 80%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: white;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon-button {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #09090a;
+}
+
+.icon-button:hover {
+  color: #0056b3;
+}
   
   .button-container {
     display: flex;
